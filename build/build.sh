@@ -12,5 +12,5 @@ cd /tmp/build/infra
 cp /tmp/build/infra/init/settings.yml /root/.conan/settings.yml
 make ce > ceinstall.log
 
-#conan user ce -p -r=ceserver
-bin/ce_install --enable=nightly --staging=/tmp/staging build libraries/c++/nightly
+conan user ce -p -r=ceserver
+bin/ce_install --staging=/tmp/staging build libraries/c++
