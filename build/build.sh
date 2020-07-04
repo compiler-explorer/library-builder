@@ -2,6 +2,19 @@
 
 set -ex
 
+LIBRARYTOBUILD=$1
+FORCECOMPILER=$2
+
+FORCECOMPILERPARAM=""
+if [[ "$FORCECOMPILER" != "all" ]]; then
+  FORCECOMPILERPARAM="--buildfor=$FORCECOMPILER"
+fi
+
+LIBRARYPARAM="libraries/c++"
+if [[ "$LIBRARYTOBUILD" != "all" ]]; then
+  LIBRARYPARAM="libraries/c++/$LIBRARYTOBUILD"
+fi
+
 ROOT=$(pwd)
 PATH=$PATH:/opt/compiler-explorer/cmake/bin
 
@@ -13,4 +26,4 @@ cp /tmp/build/infra/init/settings.yml /root/.conan/settings.yml
 make ce > ceinstall.log
 
 conan user ce -p -r=ceserver
-bin/ce_install --staging=/tmp/staging build libraries/c++
+bin/ce_install --staging=/tmp/staging $FORCECOMPILERPARAM build '$LIBRARYPARAM'
