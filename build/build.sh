@@ -26,4 +26,4 @@ cp /tmp/build/infra/init/settings.yml /root/.conan/settings.yml
 make ce > ceinstall.log
 
 conan user ce -p -r=ceserver
-bin/ce_install --staging=/tmp/staging $FORCECOMPILERPARAM build "'$LIBRARYPARAM'"
+bin/ce_install --staging=/tmp/staging $FORCECOMPILERPARAM build "$LIBRARYPARAM"
