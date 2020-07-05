@@ -6,12 +6,12 @@ LIBRARYTOBUILD=$1
 FORCECOMPILER=$2
 
 FORCECOMPILERPARAM=""
-if [[ "$FORCECOMPILER" != "all" ]]; then
+if [ "$FORCECOMPILER" != "all" ]; then
   FORCECOMPILERPARAM="--buildfor=$FORCECOMPILER"
 fi
 
 LIBRARYPARAM="libraries/c++"
-if [[ "$LIBRARYTOBUILD" != "all" ]]; then
+if [ "$LIBRARYTOBUILD" != "all" ]; then
   LIBRARYPARAM="libraries/c++/$LIBRARYTOBUILD"
 fi
 
@@ -26,4 +26,4 @@ cp /tmp/build/infra/init/settings.yml /root/.conan/settings.yml
 make ce > ceinstall.log
 
 conan user ce -p -r=ceserver
-bin/ce_install --staging=/tmp/staging $FORCECOMPILERPARAM build '$LIBRARYPARAM'
+bin/ce_install --staging=/tmp/staging $FORCECOMPILERPARAM build "'$LIBRARYPARAM'"
