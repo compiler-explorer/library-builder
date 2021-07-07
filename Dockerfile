@@ -21,7 +21,8 @@ RUN apt update -y -q && apt upgrade -y -q && apt upgrade -y -q && apt install -y
     texinfo \
     unzip \
     wget \
-    xz-utils
+    xz-utils \
+    libcurl4-openssl-dev
 
 RUN cd /tmp && \
     curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" && \
