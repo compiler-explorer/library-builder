@@ -16,6 +16,7 @@ RUN apt update -y -q && apt upgrade -y -q && apt upgrade -y -q && apt install -y
     autoconf \
     automake \
     make \
+    ninja \
     patch \
     subversion \
     texinfo \
