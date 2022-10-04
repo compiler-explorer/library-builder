@@ -31,7 +31,7 @@ RUN cd /tmp && \
     ./aws/install && \
     rm -rf aws*
 
-RUN apt install -y python3.8 python3-pip python3.8-venv
+RUN apt install -y python3.10 python3-pip python3.10-venv
 RUN python3 -m pip install conan
 
 RUN mkdir -p /tmp/build
