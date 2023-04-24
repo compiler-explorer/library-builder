@@ -32,7 +32,7 @@ RUN cd /tmp && \
     rm -rf aws*
 
 RUN apt install -y python3.9 python3-pip python3.9-venv
-RUN python3 -m pip install conan
+RUN python3 -m pip install conan==1.59
 
 RUN mkdir -p /tmp/build
 COPY build /tmp/build
