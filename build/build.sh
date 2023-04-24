@@ -7,7 +7,9 @@ LIBRARYTOBUILD=$2
 FORCECOMPILER=$3
 
 FORCECOMPILERPARAM=""
-if [ "$FORCECOMPILER" != "all" ]; then
+if [ "$FORCECOMPILER" = "popular-compilers-only" ]; then
+  FORCECOMPILERPARAM="--popular-compilers-only"
+elif [ "$FORCECOMPILER" != "all" ]; then
   FORCECOMPILERPARAM="--buildfor=$FORCECOMPILER"
 fi
 
@@ -16,7 +18,6 @@ if [ "$LIBRARYTOBUILD" != "all" ]; then
   LIBRARYPARAM="libraries/$1/$LIBRARYTOBUILD"
 fi
 
-ROOT=$(pwd)
 PATH=$PATH:/opt/compiler-explorer/cmake/bin
 
 cd /tmp/build
@@ -27,4 +28,4 @@ cp /tmp/build/infra/init/settings.yml /root/.conan/settings.yml
 make ce > ceinstall.log
 
 conan user ce -p -r=ceserver
-bin/ce_install --staging-dir=/tmp/staging --enable=nightly build $FORCECOMPILERPARAM "$LIBRARYPARAM"
+bin/ce_install --staging-dir=/tmp/staging --enable=nightly build "$FORCECOMPILERPARAM" "$LIBRARYPARAM"
