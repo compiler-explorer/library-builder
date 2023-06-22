@@ -28,4 +28,4 @@ cp /tmp/build/infra/init/settings.yml /root/.conan/settings.yml
 make ce > ceinstall.log
 
 conan user ce -p -r=ceserver
-bin/ce_install --staging-dir=/tmp/staging --enable=nightly build "$FORCECOMPILERPARAM" "$LIBRARYPARAM"
+bin/ce_install --staging-dir=/tmp/staging --debug --enable=nightly build "$FORCECOMPILERPARAM" "$LIBRARYPARAM"
