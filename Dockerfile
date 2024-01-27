@@ -1,4 +1,4 @@
-FROM ubuntu:20.04
+FROM ubuntu:22.04
 MAINTAINER Matt Godbolt <matt@godbolt.org>
 
 ARG DEBIAN_FRONTEND=noninteractive
@@ -40,7 +40,7 @@ RUN cd /tmp && \
     ./aws/install && \
     rm -rf aws*
 
-RUN apt install -y python3.9 python3-pip python3.9-venv
+RUN apt install -y python3.10 python3-pip python3.10-venv
 RUN python3 -m pip install conan==1.59
 
 RUN mkdir -p /tmp/build
