@@ -11,11 +11,14 @@ RUN apt update -y -q && apt upgrade -y -q && apt upgrade -y -q && apt install -y
     gawk \
     git \
     libc6-dev-i386 \
+    libc6-dev-arm64-cross \
     libelf-dev \
     linux-libc-dev \
     autoconf \
     automake \
     make \
+    binutils-multiarch \
+    elfutils \
     ninja-build \
     patch \
     subversion \
