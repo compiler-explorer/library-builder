@@ -10,5 +10,6 @@ Usage is described in https://github.com/compiler-explorer/infra/blob/main/admin
 
 ## Testing
 
-sudo docker build -t libbuild .
-sudo docker run -v/opt:/opt:ro -e "CONAN_PASSWORD=$(aws ssm get-parameter --name /compiler-explorer/conanpwd | jq -r .Parameter.Value)" libbuild bash build.sh "c++" "fmt 11.0.0"
+`sudo docker build -t libbuild .`
+
+`sudo docker run -v/opt:/opt:ro -e "CONAN_PASSWORD=$(aws ssm get-parameter --name /compiler-explorer/conanpwd | jq -r .Parameter.Value)" libbuild bash build.sh "c++" "fmt 11.0.0"`
