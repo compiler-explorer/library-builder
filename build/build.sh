@@ -24,7 +24,9 @@ cd /tmp/build
 git clone https://github.com/compiler-explorer/infra
 
 cd /tmp/build/infra
-cp /tmp/build/infra/init/settings.yml /root/.conan/settings.yml
+
+CONAN_HOME=$(conan config home)
+cp /tmp/build/infra/init/settings.yml $CONAN_HOME/settings.yml
 make ce > ceinstall.log
 
 conan user ce -p -r=ceserver
